@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession } from "next-auth/react";
+import { useSession, SessionProvider } from "next-auth/react"; // Import SessionProvider
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -48,13 +48,16 @@ const MyProfile = () => {
   };
 
   return (
-    <Profile
-      name='My'
-      desc='Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination'
-      data={myPosts}
-      handleEdit={handleEdit}
-      handleDelete={handleDelete}
-    />
+    // Wrap MyProfile component with SessionProvider
+    <SessionProvider session={session}>
+      <Profile
+        name='My'
+        desc='Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination'
+        data={myPosts}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
+      />
+    </SessionProvider>
   );
 };
 
