@@ -11,6 +11,7 @@ const Home = () => (
       Promptopia is an open-source AI prompting tool for modern world to
       discover, create and share creative prompts
     </p>
+    <h2 className="text-black text-xl underline mt-3">If you aren't able to see your prompts kindly reload the page on a regular basis!</h2>
 
     <Feed />
   </section>
